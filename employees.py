@@ -60,29 +60,3 @@ def find_empl(podaj_nazwisko):
 
 
 find_empl('Wozniak')
-
-
-def daj_podwyzki(baza, dzial, kwota):
-    print("Podwyzki o", kwota, "zł dla wszystkich z działu", dzial)
-    try:
-        for pracownik in baza:
-            try:
-                if pracownik.dzial == dzial:
-                    try:
-                        pracownik.podwyzka(kwota)
-                    except TypeError:
-                        print("Kwota musi byc wyrożona liczbowo")
-                        break
-            except AttributeError:
-                print("pracownik {} nie ma właściwości dział! Sprawdź bazę danych: {}".format(pracownik, baza))
-    except TypeError:
-        print("Nieprawidłowa baza danych!", baza)
-
-
-nowa_baza = transferuj()
-szukaj_pracownika(nowa_baza, "Anna", "Wisniewska")
-
-daj_podwyzki(baza_firmy, "IT", "500")
-daj_podwyzki(5, "IT", 500)
-daj_podwyzki([5 ,6 ,7], "IT", 500)
-daj_podwyzki(baza_firmy, "IT", 500)
